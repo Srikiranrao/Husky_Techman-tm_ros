@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: techman_husky
+    relative_path: urdf/test.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/tmhus.srdf
+  CONFIG:
+    author_name: Kiran
+    author_email: srikirandelta@gmail.com
+    generated_timestamp: 1679923170

@@ -1,0 +1,5 @@
+get tf 
+rosrun tf tf_echo base_link  end_link
+
+get link names 
+rosrun rqt_tf_tree rqt_tf_tree 

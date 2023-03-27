@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="tmhus">
+
+  <xacro:arg name="ns" default="" />
+  <xacro:arg name="prefix" default="" />
+  <xacro:arg name="color" default="blue" />
+  <xacro:arg name="trans_hw_iface" default="hardware_interface/PositionJointInterface" />
+
+  <xacro:include filename="$(find techman_husky)/urdf/macro.gazebo.xacro" />
+  <xacro:include filename="$(find techman_husky)/urdf/macro.transmission.xacro" />
+  <xacro:include filename="$(find techman_husky)/urdf/macro.materials.xacro" />
+
+
+  <!-- tm14x -->
+  <!-- If the user want to use newly generated named robot description file as user_defined.urdf.xacro, -->
+  <!-- you must modify 'macro.tm14x-nominal.urdf.xacro' to 'user_defined.urdf.xacro'  -->
+  <xacro:include filename="$(find techman_husky)/urdf/macro.tm14x-nominal.urdf.xacro" />
+  <xacro:include filename="$(find techman_husky)/urdf/husky.urdf.xacro" />
+  <xacro:include filename="$(find hector_sensors_description)/urdf/hokuyo_utm30lx.urdf.xacro" />
+
+
+
+  <!--  -->
+  <xacro:tmr_gazebo ns="$(arg ns)" prefix="$(arg prefix)" />
+  <xacro:tmr_transmission prefix="$(arg prefix)" hw_iface="$(arg trans_hw_iface)" />
+  <xacro:tmr_materials/>
+
+
+  <!-- Arm -->
+  <xacro:property name="color" value="$(arg color)"/>
+  <xacro:if value="${color == 'blue'}">
+    <xacro:tm14x ns="$(arg ns)" prefix="$(arg prefix)" />
+  </xacro:if>
+
+
+  <!-- Arm.color.stl -->
+  <xacro:unless value="${color == 'blue'}">
+    <xacro:tm14x ns="$(arg ns)" prefix="$(arg prefix)" color="${color}" format="stl" />
+  </xacro:unless>
+
+  
+  <joint name="world_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="base" />
+    <origin xyz="0.3 0 0.27" rpy="0 0 0" />
+  </joint>
+
+  <xacro:macro name="hokuyo_utm30lx_model" params="hokuyo ">
+    <parent link="base_link" />
+    <origin xyz="1 0 1" rpy="0 0 0" />
+  </xacro:macro>
+</robot>

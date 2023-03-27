@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="tmr_materials">
+		<material name="none">
+			<color rgba="0.0 0.0 0.0 1.0" />
+		</material>
+		<material name="lightgrey">
+			<color rgba="0.5 0.5 0.5 1.0" />
+		</material>
+		<material name="grey">
+			<color rgba="0.75 0.75 0.75 1.0" />
+		</material>
+		<material name="whitew">
+			<color rgba="0.95 0.95 0.95 1.0" />
+		</material>
+		<material name="redw">
+			<color rgba="0.95 0.0 0.0 1.0" />
+		</material>
+		<material name="orangew">
+			<color rgba="1.0 0.5 0.0 1.0" />
+		</material>
+		<material name="yelloww">
+			<color rgba="1.0 1.0 0.0 1.0" />
+		</material>
+		<material name="greenw">
+			<color rgba="0.0 1.0 0.0 1.0" />
+		</material>
+		<material name="bluew">
+			<color rgba="0.0 0.0 1.0 1.0" />
+		</material>
+		<material name="indigow">
+			<color rgba="0.3 0.3 0.6 1.0" />
+		</material>
+		<material name="violetw">
+			<color rgba="0.6 0.0 1.0 1.0" />
+		</material>
+		<material name="blackw">
+			<color rgba="0.0 0.0 0.0 1.0" />
+		</material>
+		<material name="darkolivew">
+			<color rgba="0.3 0.3 0.25 1.0" />
+		</material>
+	</xacro:macro>
+</robot>
